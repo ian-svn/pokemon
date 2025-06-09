@@ -20,7 +20,6 @@ public abstract class Pokemon {
 	private TipoEstado tipoEstado = TipoEstado.NINGUNO;
 	private ArrayList<EfectoSecundario> efectos = new ArrayList<>();
 	
-	
 	public Pokemon(String nombre, int HP, Tipo[] tipos, Ataque[] ataques) {
 		this.nombre = nombre;
 		this.HP = HP;
@@ -28,9 +27,15 @@ public abstract class Pokemon {
 		this.ataques = ataques;
 	}
 	
+	public void realizarAtaque(Pokemon oponente, int indice) {
+		this.ataques[indice].utilizar(this, oponente);
+	}
+	
 	public void inflingirDanio(Pokemon oponente, float danio) {
-		float danioFinal = (danio * indiceAtaque) / 100;
-		oponente.recibirDanio(danioFinal);
+		if(!tipoEstado.equals(TipoEstado.PARALIZADO)) {
+			float danioFinal = (danio * indiceAtaque) / 100;
+			oponente.recibirDanio(danioFinal);
+		}
 	}
 	
 	public void recibirDanio(float danio) {
@@ -40,12 +45,6 @@ public abstract class Pokemon {
 		}
 		this.HP -= danioFinal;
 	}
-
-	public int getHP() {
-		return HP;
-	}
-
-	
 	
 	public void actualizarTipoEstado() {
 		if(turnosActuales>0) {
@@ -56,13 +55,20 @@ public abstract class Pokemon {
 	}
 	
 	public void actualizarEfectos() {
-		for (int i = 0; i < efectos.size(); i++) {
-			if(efectos.get(i).comprobarActividadEfecto()) {
-				efectos.get(i).aplicarEfecto(this);
-				efectos.get(i).actualizarEfecto();
-			} else {
-				efectos.remove(i);
-			}
+	    ArrayList<EfectoSecundario> efectosActivos = new ArrayList<>();
+	    for (EfectoSecundario efecto : efectos) {
+	        if (efecto.comprobarActividadEfecto()) {
+	            efecto.aplicarEfecto(this);
+	            efecto.actualizarEfecto();
+	            efectosActivos.add(efecto);
+	        }
+	    }
+	    this.efectos = efectosActivos;
+	}
+	
+	public void mostrarAtaques() {
+		for (int i = 0; i < ataques.length; i++) {
+			ataques[i].mostrar();
 		}
 	}
 	
@@ -98,5 +104,16 @@ public abstract class Pokemon {
 	public void setIndicePrecision(int indicePrecision) {
 		this.indicePrecision = indicePrecision;
 	}
+
+	public int getHP() {
+		return HP;
+	}
+
+	public Ataque[] getAtaques() {
+		return ataques;
+	}
+	
+	
+	
 	
 }

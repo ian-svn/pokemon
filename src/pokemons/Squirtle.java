@@ -9,8 +9,9 @@ import enumeradores.Tipo;
 
 public class Squirtle extends Pokemon{
 
-	public Squirtle(String nombre, Tipo[] tipos, Ataque[] ataques) {
-		super("Squirtle", 720, new Tipo[] {Tipo.AGUA	}, new Ataque[] {new Placaje(), new Grunido(), new LatigoCepa(), new PolvoVenenoso()});
+	public Squirtle() {
+		super("Squirtle", 720, new Tipo[] {Tipo.AGUA}, new Ataque[] {
+				new Placaje(), new Grunido(), new LatigoCepa(), new PolvoVenenoso()});
 	}
 
 }

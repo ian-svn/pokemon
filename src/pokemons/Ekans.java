@@ -9,7 +9,7 @@ import enumeradores.Tipo;
 
 public class Ekans extends Pokemon{
 
-	public Ekans(String nombre, Tipo[] tipos, Ataque[] ataques) {
+	public Ekans() {
 		super("Ekans", 770, new Tipo[] {Tipo.VENENO}, new Ataque[] {new Constricción(), new Malicioso(), new PolvoVenenoso(), new Mordisco()});
 	}
 

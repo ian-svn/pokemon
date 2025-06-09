@@ -29,18 +29,14 @@ public abstract class Ataque {
 		this.efectoSecundario = efectoSecundario;
 	}
 	
-	public void utilizar(Pokemon pokemon) {
-		inflingirDanio(pokemon);
-		aplicarEfectoSecundario(pokemon);
+	public void utilizar(Pokemon pokemon, Pokemon oponente) {
+		pokemon.inflingirDanio(oponente, this.danio);
+		aplicarEfectoSecundario(oponente);
 	}
 	
-	public void inflingirDanio(Pokemon pokemon) {
-		pokemon.recibirDanio(this.danio);
-	}
-	
-	public void aplicarEfectoSecundario(Pokemon pokemon) {
+	public void aplicarEfectoSecundario(Pokemon oponente) {
 		if(Aleatorio.calcularProbabilidad(this.efectoSecundario.getProbabilidad())) {
-			pokemon.aplicarEfecto(efectoSecundario);
+			oponente.aplicarEfecto(efectoSecundario);
 		}
 	}
 	
