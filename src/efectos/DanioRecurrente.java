@@ -30,6 +30,11 @@ public class DanioRecurrente extends EfectoSecundario{
 			pokemon.recibirDanio(DANIO);
 		}
 	}
+
+	@Override
+	public void mostrar() {
+		
+	}
 	
 	
 }

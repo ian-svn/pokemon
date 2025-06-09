@@ -6,7 +6,7 @@ import utilidades.Aleatorio;
 public abstract class EfectoSecundario {
 	private int probabilidad;
 	private int turnosMin, turnosMax;
-	private int turnosActuales;
+	protected int turnosActuales;
 	
 	public EfectoSecundario(int probabilidad, int turnosMin, int turnosMax) {
 		this.probabilidad = probabilidad;
@@ -34,6 +34,7 @@ public abstract class EfectoSecundario {
 		return true;
 	}
 	
+	public abstract void mostrar();
 	
 	
 	

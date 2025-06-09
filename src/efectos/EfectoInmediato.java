@@ -22,6 +22,12 @@ public class EfectoInmediato extends EfectoSecundario{
 		final int DANIO = (pokemon.getHP() * Aleatorio.generarEntero(valorMin, valorMax)) / 100;
 		pokemon.recibirDanio(DANIO);
 	}
+
+	@Override
+	public void mostrar() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }

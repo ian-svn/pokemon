@@ -34,5 +34,11 @@ public class ModificacionEstadistica extends EfectoSecundario{
 				break;
 		}
 	}
+
+
+	@Override
+	public void mostrar() {
+		
+	}
 	
 }

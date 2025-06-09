@@ -19,7 +19,12 @@ public class EstadoAlterado extends EfectoSecundario{
 
 	@Override
 	public void aplicarEfecto(Pokemon pokemon) {
-		
+		pokemon.aplicarEstado(this.tipoAlterado, this.turnosActuales);
+	}
+
+	@Override
+	public void mostrar() {
+		System.out.println("| "+ this.tipoAlterado + " | ");
 	}
 	
 }

@@ -76,7 +76,7 @@ public abstract class Pokemon {
 		this.efectos.add(efecto);
 	}
 	
-	public void aplicarEstado(TipoEstado tipoEstado) {
+	public void aplicarEstado(TipoEstado tipoEstado, int turnos) {
 		this.tipoEstado = tipoEstado;
 	}
 	
